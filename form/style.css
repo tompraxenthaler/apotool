@@ -153,6 +153,7 @@ input[name="plz"] {
 .infomail-container {
     width: 100%;
     height: 100%;
+    margin-top: 5px;
     margin-bottom: 15px;
     display: grid;
     grid-template-columns: auto 150px;
