@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width", initial-scale=1">
+    <title>Form</title>
+    <link rel="stylesheet" href="style.css">
+    <script type="text/javascript"
+        src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js">
+    </script>
+    <script type="text/javascript">
+        (function(){
+            emailjs.init("shonANTuR2xK5mQ0Q");
+        })();
+    </script>
+</head>
+<body>
+    <!-- <div class="form-container"> -->
+        <form onsubmit="sendMail()" id="htmlForm">
+            <div class="inner-form-container">
+                <h1>Anmeldung zum Bonusprogramm</h1>
+                <select id="anrede" name="anrede" class="required" required>
+                    <option value="" selected disabled>Anrede*</option>
+                    <option value="frau">Frau</option>
+                    <option value="herr">Herr</option>
+                    <option value="divers">divers</option>
+                    <option value="familie">Familie</option>
+                    <option value="firma">Firma</option>
+                </select>
+                <select id="titel" name="titel">
+                    <option value="" selected disabled>Titel</option>
+                    <option value="dr">Dr.</option>
+                    <option value="prof">Prof.</option>
+                </select>
+                <input type="text" name="vorname" id="vorname" class="required" placeholder="Vorname*" required>
+                <input type="text" name="nachname" id="nachname" class="required" placeholder="Nachname*" required>
+                <input type="email" name="email" id="email" class="required" placeholder="E-Mail Adresse*" required>
+                <div class="infomail-container">
+                    <div class="infomail-text">
+                        Möchtest du per Infomail über Aktionen, Sales & neue Trends informiert werden?
+                    </div>
+                    <div class="infomail-options">
+                        <span>Ja</span>
+                        <label class="switch">
+                            <input type="checkbox" id="optin">
+                            <span class="slider round"></span>
+                        </label>
+                        <span>Nein</span>
+                    </div>
+                </div>
+                <div class="adress-container-street">
+                    <input type="text" name="strasse" id="strasse" class="required" placeholder="Straße*" required>
+                    <p></p>
+                    <input type="number" name="hausnummer" id="hausnummer" class="required" placeholder="Nr.*" required>
+                </div>
+                <input type="text" name="adresszusatz" id="adresszusatz" placeholder="Adresszusatz">
+                <div class="adress-container-city">
+                    <input type="number" name="plz" id="plz" class="required" placeholder="PLZ*" required>
+                    <p></p>
+                    <input type="text" name="ort" id="ort" class="required" placeholder="Ort*" required>
+                </div>
+                <select id="land" name="land" class="required" required>
+                    <option value="" selected disabled>Land*</option>
+                    <option value="deutschland">Deutschland</option>
+                    <option value="austria">&Ouml;sterreich</option>
+                    <option value="schweiz">Schweiz</option>
+                </select>
+                <input type="tel" name="telefon" id="telefon" placeholder="Telefonnummer">
+                <div id="geburtstag-container">
+                    <span id="geburtstag-label">Geburtsdatum*</span>
+                    <input type="date" name="geburtstag" id="geburtstag" placeholder="geburtstag" required>
+                </div>
+                <div id="sportarten-border">
+                    <div id="sportarten-headline"><span>Deine Sportarten*</span></div>
+                    <div class="sportarten-container">
+                        <div class="sportarten-element">
+                            <input type="checkbox" name="alpinski" id="alpinski">
+                            <span>Alpin-Ski</span>
+                        </div>
+                        <div class="sportarten-element">
+                            <input type="checkbox" name="skitouren" id="skitouren">
+                            <span>Skitouren</span>
+                        </div>
+                        <div class="sportarten-element">
+                            <input type="checkbox" name="freeride" id="freeride">
+                            <span>Freeride</span>
+                        </div>
+                        <div class="sportarten-element">
+                            <input type="checkbox" name="langlauf" id="langlauf">
+                            <span>Langlauf</span>
+                        </div>
+                        <div class="sportarten-element">
+                            <input type="checkbox" name="snowboard" id="snowboard">
+                            <span>Snowboard</span>
+                        </div>
+                        <div class="sportarten-element">
+                            <input type="checkbox" name="wandern" id="wandern">
+                            <span>Wandern / Bergsteigen</span>
+                        </div>
+                        <div class="sportarten-element">
+                            <input type="checkbox" name="klettern" id="klettern">
+                            <span>Klettern / Bouldern</span>
+                        </div>
+                        <div class="sportarten-element">
+                            <input type="checkbox" name="klettersteig" id="klettersteig">
+                            <span>Klettersteig
+                            </span>
+                        </div>
+                        <div class="sportarten-element">
+                            <input type="checkbox" name="trailrunning" id="trailrunning">
+                            <span>Trailrunning</span>
+                        </div>
+                        <div class="sportarten-element">
+                            <input type="checkbox" name="fahrrad" id="fahrrad">
+                            <span>Fahrrad</span>
+                        </div>    
+                        <div class="sportarten-element">
+                            <input type="checkbox" name="running" id="running">
+                            <span>Running</span>
+                        </div>   
+                        <div class="sportarten-element">
+                            <input type="checkbox" name="fitness" id="fitness">
+                            <span>Fitness</span>
+                        </div>    
+                        <div class="sportarten-element">
+                            <input type="checkbox" name="schwimmen" id="schwimmen">
+                            <span>Schwimmen</span>
+                        </div>                
+                        <div class="sportarten-element">
+                            <input type="checkbox" name="fussball" id="fussball">
+                            <span>Fußball</span>
+                        </div>    
+                        <div class="sportarten-element">
+                            <input type="checkbox" name="tennis" id="tennis">
+                            <span>Tennis</span>
+                        </div>    
+                        <div class="sportarten-element">
+                            <input type="checkbox" name="basketball" id="basketball">
+                            <span>Basketball</span>
+                        </div>    
+                        <div class="sportarten-element">
+                            <input type="checkbox" name="ballsport" id="ballsport">
+                            <span>Ballsport Sonstiges</span>
+                        </div>    
+                        <div class="sportarten-element">
+                            <input type="checkbox" name="beach" id="beach">
+                            <span>Bade & Beach</span>
+                        </div>    
+                    </div>
+                </div>
+                <div class="form-checkbox-text-container">
+                    <input type="checkbox" id="consent" required>
+                    <label for="consent" class="checkbox-text">Ich habe die Teilnahmebedingungen sowie die Datenschutzerklärung gelesen und akzeptieren diese.*</label>
+                </div>
+            </div>
+            <button id="formButton" type="submit" disabled>Jetzt anmelden</button>
+
+        </form>
+    <!-- </div> -->
+    <script src="script.js"></script>
+</body>
+</html>
