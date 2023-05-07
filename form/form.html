@@ -16,7 +16,7 @@
 </head>
 <body>
     <!-- <div class="form-container"> -->
-        <form onsubmit="sendMail()" id="htmlForm">
+        <form onsubmit="sendMail()" action="https://sport-praxenthaler.com" id="htmlForm">
             <div class="inner-form-container">
                 <h1>Anmeldung zum Bonusprogramm</h1>
                 <select id="anrede" name="anrede" class="required" required>
@@ -67,90 +67,90 @@
                 </select>
                 <input type="tel" name="telefon" id="telefon" placeholder="Telefonnummer">
                 <div id="geburtstag-container">
-                    <span id="geburtstag-label">Geburtsdatum*</span>
-                    <input type="date" name="geburtstag" id="geburtstag" placeholder="geburtstag" required>
+                    <span id="geburtstag-label">Geburtsdatum</span>
+                    <input type="date" name="geburtstag" id="geburtstag" placeholder="geburtstag">
                 </div>
                 <div id="sportarten-border">
                     <div id="sportarten-headline"><span>Deine Sportarten*</span></div>
                     <div class="sportarten-container">
                         <div class="sportarten-element">
-                            <input type="checkbox" name="alpinski" id="alpinski">
+                            <input type="checkbox" name="alpinski" id="alpinski" class="sportart-checkbox">
                             <span>Alpin-Ski</span>
                         </div>
                         <div class="sportarten-element">
-                            <input type="checkbox" name="skitouren" id="skitouren">
+                            <input type="checkbox" name="skitouren" id="skitouren" class="sportart-checkbox">
                             <span>Skitouren</span>
                         </div>
                         <div class="sportarten-element">
-                            <input type="checkbox" name="freeride" id="freeride">
+                            <input type="checkbox" name="freeride" id="freeride" class="sportart-checkbox">
                             <span>Freeride</span>
                         </div>
                         <div class="sportarten-element">
-                            <input type="checkbox" name="langlauf" id="langlauf">
+                            <input type="checkbox" name="langlauf" id="langlauf" class="sportart-checkbox">
                             <span>Langlauf</span>
                         </div>
                         <div class="sportarten-element">
-                            <input type="checkbox" name="snowboard" id="snowboard">
+                            <input type="checkbox" name="snowboard" id="snowboard" class="sportart-checkbox">
                             <span>Snowboard</span>
                         </div>
                         <div class="sportarten-element">
-                            <input type="checkbox" name="wandern" id="wandern">
+                            <input type="checkbox" name="wandern" id="wandern" class="sportart-checkbox">
                             <span>Wandern / Bergsteigen</span>
                         </div>
                         <div class="sportarten-element">
-                            <input type="checkbox" name="klettern" id="klettern">
+                            <input type="checkbox" name="klettern" id="klettern" class="sportart-checkbox">
                             <span>Klettern / Bouldern</span>
                         </div>
                         <div class="sportarten-element">
-                            <input type="checkbox" name="klettersteig" id="klettersteig">
+                            <input type="checkbox" name="klettersteig" id="klettersteig" class="sportart-checkbox">
                             <span>Klettersteig
                             </span>
                         </div>
                         <div class="sportarten-element">
-                            <input type="checkbox" name="trailrunning" id="trailrunning">
+                            <input type="checkbox" name="trailrunning" id="trailrunning" class="sportart-checkbox">
                             <span>Trailrunning</span>
                         </div>
                         <div class="sportarten-element">
-                            <input type="checkbox" name="fahrrad" id="fahrrad">
+                            <input type="checkbox" name="fahrrad" id="fahrrad" class="sportart-checkbox">
                             <span>Fahrrad</span>
                         </div>    
                         <div class="sportarten-element">
-                            <input type="checkbox" name="running" id="running">
+                            <input type="checkbox" name="running" id="running" class="sportart-checkbox">
                             <span>Running</span>
                         </div>   
                         <div class="sportarten-element">
-                            <input type="checkbox" name="fitness" id="fitness">
+                            <input type="checkbox" name="fitness" id="fitness" class="sportart-checkbox">
                             <span>Fitness</span>
                         </div>    
                         <div class="sportarten-element">
-                            <input type="checkbox" name="schwimmen" id="schwimmen">
+                            <input type="checkbox" name="schwimmen" id="schwimmen" class="sportart-checkbox">
                             <span>Schwimmen</span>
                         </div>                
                         <div class="sportarten-element">
-                            <input type="checkbox" name="fussball" id="fussball">
+                            <input type="checkbox" name="fussball" id="fussball" class="sportart-checkbox">
                             <span>Fußball</span>
                         </div>    
                         <div class="sportarten-element">
-                            <input type="checkbox" name="tennis" id="tennis">
+                            <input type="checkbox" name="tennis" id="tennis" class="sportart-checkbox">
                             <span>Tennis</span>
                         </div>    
                         <div class="sportarten-element">
-                            <input type="checkbox" name="basketball" id="basketball">
+                            <input type="checkbox" name="basketball" id="basketball" class="sportart-checkbox">
                             <span>Basketball</span>
                         </div>    
                         <div class="sportarten-element">
-                            <input type="checkbox" name="ballsport" id="ballsport">
+                            <input type="checkbox" name="ballsport" id="ballsport" class="sportart-checkbox">
                             <span>Ballsport Sonstiges</span>
                         </div>    
                         <div class="sportarten-element">
-                            <input type="checkbox" name="beach" id="beach">
+                            <input type="checkbox" name="beach" id="beach" class="sportart-checkbox">
                             <span>Bade & Beach</span>
                         </div>    
                     </div>
                 </div>
                 <div class="form-checkbox-text-container">
                     <input type="checkbox" id="consent" required>
-                    <label for="consent" class="checkbox-text">Ich habe die Teilnahmebedingungen sowie die Datenschutzerklärung gelesen und akzeptieren diese.*</label>
+                    <label for="consent" class="checkbox-text">Ich habe die Teilnahmebedingungen sowie die Datenschutzerklärung gelesen und akzeptiere diese.*</label>
                 </div>
             </div>
             <button id="formButton" type="submit" disabled>Jetzt anmelden</button>
