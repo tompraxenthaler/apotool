@@ -1,5 +1,23 @@
 var htmlForm = document.getElementById("htmlForm");
 var formButton = document.getElementById("formButton");
+var parameters = {
+    anrede: "",
+    titel: "",
+    vorname: "",
+    nachname: "",
+    email: "",
+    strasse: "",
+    hausnummer: "",
+    adresszusatz: "",
+    plz: "",
+    ort: "",
+    land: "",
+    telefon: "",
+    geburtsdatum: "",
+    sportarten: "",
+};
+var optin = "";
+var sportartCheckboxes = "";
 
 htmlForm.addEventListener("input", () => {
     if (htmlForm.checkValidity()) {
@@ -12,14 +30,33 @@ htmlForm.addEventListener("input", () => {
 function sendMail () {
     event.preventDefault();
 
-    var parameters = {
+    sportartCheckboxes = document.getElementsByClassName("sportart-checkbox");
+    var sportartenSelected = "";
+    for (var i = 0; i < sportartCheckboxes.length; i++) {
+        if (sportartCheckboxes[i].checked == true){
+            sportartenSelected += sportartCheckboxes[i].id + " ";
+        }
+    }
+
+    parameters = {
+        anrede: document.getElementById("anrede").value,
+        titel: document.getElementById("titel").value,
         vorname: document.getElementById("vorname").value,
         nachname: document.getElementById("nachname").value,
         email: document.getElementById("email").value,
+        strasse: document.getElementById("strasse").value,
+        hausnummer: document.getElementById("hausnummer").value,
+        adresszusatz: document.getElementById("adresszusatz").value,
+        plz: document.getElementById("plz").value,
+        ort: document.getElementById("ort").value,
+        land: document.getElementById("land").value,
+        telefon: document.getElementById("telefon").value,
+        geburtsdatum: document.getElementById("geburtstag").value,
+        sportarten: sportartenSelected,
     };
-        console.log(parameters);
-    var optIn = document.getElementById("optin");
-        console.log("OptIn:" + optIn.checked);
+    console.log(parameters);
+    optin = document.getElementById("optin");
+    console.log("Opt-In:" + optin.checked);
 
     ////////////////////////////////////////////
     // EmailJS trigger
@@ -45,8 +82,8 @@ function sendMail () {
     ////////////////////////////////////////////
     // Bei Opt-in CleverReach Funktion ausführen 
     ////////////////////////////////////////////
-    if (optIn.checked) {
-        console.log("OptIn");
+    if (optin.checked) {
+        console.log("Post CleverReach");
         sendCleverReachData();
     };
 
@@ -67,10 +104,10 @@ function sendMail () {
     document.getElementById("land").value = "";
     document.getElementById("telefon").value = "";
     document.getElementById("geburtstag").value = "";
-    var sportartCheckboxes = document.getElementsByClassName("sportart-checkbox");
     for (var i = 0; i < sportartCheckboxes.length; i++) {
         sportartCheckboxes[i].checked = false;
     }
+    sportartenSelected = "";
     document.getElementById("consent").checked = false;
 
     ////////////////////////////////////////
