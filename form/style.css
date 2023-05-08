@@ -155,6 +155,11 @@ input[name="plz"] {
     width: 96%;
 }
 
+.two-col-input {
+    display: grid;
+    grid-template-columns: 49% 2% 49%;
+}
+
 .infomail-container {
     width: 100%;
     margin-top: 5px;
