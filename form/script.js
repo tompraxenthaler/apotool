@@ -16,8 +16,13 @@ var parameters = {
     geburtsdatum: "",
     sportarten: "",
 };
+var tag = "";
+var monat = "";
+var jahr = "";
+var geschlecht = "";
 var optin = "";
 var sportartCheckboxes = "";
+var sportartenSelected = "";
 
 htmlForm.addEventListener("input", () => {
     if (htmlForm.checkValidity()) {
@@ -30,8 +35,10 @@ htmlForm.addEventListener("input", () => {
 function sendMail () {
     event.preventDefault();
 
+    ////////////////////////////////////////////
+    // Parameter und Variablen definieren
+    ////////////////////////////////////////////
     sportartCheckboxes = document.getElementsByClassName("sportart-checkbox");
-    var sportartenSelected = "";
     for (var i = 0; i < sportartCheckboxes.length; i++) {
         if (sportartCheckboxes[i].checked == true){
             sportartenSelected += sportartCheckboxes[i].id + " ";
@@ -54,7 +61,29 @@ function sendMail () {
         geburtsdatum: document.getElementById("geburtstag").value,
         sportarten: sportartenSelected,
     };
+    var geburtsdatumSplit = parameters.geburtsdatum.split("-");
+    jahr = geburtsdatumSplit[0];
+    monat = geburtsdatumSplit[1];
+    tag = geburtsdatumSplit[2];
+
+    switch (parameters.anrede) {
+        case "Herr": geschlecht = "männlich";
+            break;
+        case "Frau": geschlecht = "weiblich";
+            break;
+        case "divers": geschlecht = "divers";
+            break;
+        case "Familie": geschlecht = "Familie";
+            break;
+        case "Firma": geschlecht = "Firma";
+            break;
+        case "Verein": geschlecht = "Verein";
+            break;
+        default: geschlecht = "";
+    }
+
     console.log(parameters);
+    console.log(geschlecht);
     optin = document.getElementById("optin");
     console.log("Opt-In:" + optin.checked);
 
@@ -128,10 +157,11 @@ function sendCleverReachData() {
         console.log(this.responseText);
     }
     };
-    xhttp.open("POST", "https://eu.cleverreach.com/f/34217-167874/wcs/", true);
+    xhttp.open("POST", "https://eu.cleverreach.com/f/34217-168874/wcs/", true);
     xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     var email = document.getElementById("email").value;
-    var data = "email=" + email;
+    var data = "email=" + email + "&250470=" + parameters.vorname + "&250471=" + parameters.nachname + "&264138=" + parameters.anrede + "&250768=" + geschlecht + "&264139=" + parameters.titel + "&258000=" + parameters.plz
+        + "&258001=" + parameters.ort + "&258002=" + parameters.land + "&250767[day]=" + tag + "&250767[month]=" + monat + "&250767[year]=" + jahr + "&258005=" + sportartenSelected + "&258004=" + "Online-Anmeldung";
     xhttp.send(data);
     console.log(data);
   }

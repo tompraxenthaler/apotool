@@ -16,23 +16,25 @@
 </head>
 <body>
     <!-- <div class="form-container"> -->
-        <form onsubmit="sendMail()" action="https://sport-praxenthaler.com" id="htmlForm">
+        <form onsubmit="sendMail()" id="htmlForm">
             <div class="inner-form-container">
                 <h1>Anmeldung zum Bonusprogramm</h1>
                 <div class="two-col-input">
                     <select id="anrede" name="anrede" class="required" required>
                         <option value="" selected disabled>Anrede*</option>
-                        <option value="frau">Frau</option>
-                        <option value="herr">Herr</option>
+                        <option value="Herr">Herr</option>
+                        <option value="Frau">Frau</option>
                         <option value="divers">divers</option>
-                        <option value="familie">Familie</option>
-                        <option value="firma">Firma</option>
+                        <option value="Familie">Familie</option>
+                        <option value="Firma">Firma</option>
+                        <option value="Verein">Verein</option>
                     </select>
                     <p></p>
                     <select id="titel" name="titel">
                         <option value="" selected disabled>Titel</option>
                         <option value="Dr.">Dr.</option>
                         <option value="Prof.">Prof.</option>
+                        <option value="Prof. Dr.">Prof. Dr.</option>
                     </select>
                 </div>
                 <input type="text" name="vorname" id="vorname" class="required" placeholder="Vorname*" required>
@@ -63,9 +65,9 @@
                 </div>
                 <select id="land" name="land" class="required" required>
                     <option value="" selected disabled>Land*</option>
-                    <option value="deutschland">Deutschland</option>
-                    <option value="austria">&Ouml;sterreich</option>
-                    <option value="schweiz">Schweiz</option>
+                    <option value="Deutschland">Deutschland</option>
+                    <option value="Österreich">&Ouml;sterreich</option>
+                    <option value="Schweiz">Schweiz</option>
                 </select>
                 <input type="tel" name="telefon" id="telefon" placeholder="Telefonnummer">
                 <div id="geburtstag-container">
