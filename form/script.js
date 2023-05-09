@@ -14,11 +14,11 @@ var parameters = {
     land: "",
     telefon: "",
     geburtsdatum: "",
+    tag: "",
+    monat: "",
+    jahr: "",
     sportarten: "",
 };
-var tag = "";
-var monat = "";
-var jahr = "";
 var geschlecht = "";
 var optin = "";
 var sportartCheckboxes = "";
@@ -59,12 +59,15 @@ function sendMail () {
         land: document.getElementById("land").value,
         telefon: document.getElementById("telefon").value,
         geburtsdatum: document.getElementById("geburtstag").value,
+        tag: "",
+        monat: "",
+        jahr: "",
         sportarten: sportartenSelected,
     };
     var geburtsdatumSplit = parameters.geburtsdatum.split("-");
-    jahr = geburtsdatumSplit[0];
-    monat = geburtsdatumSplit[1];
-    tag = geburtsdatumSplit[2];
+    parameters.jahr = geburtsdatumSplit[0];
+    parameters.monat = geburtsdatumSplit[1];
+    parameters.tag = geburtsdatumSplit[2];
 
     switch (parameters.anrede) {
         case "Herr": geschlecht = "männlich";
@@ -83,18 +86,39 @@ function sendMail () {
     }
 
     console.log(parameters);
-    console.log(geschlecht);
+    console.log(parameters.vorname);
     optin = document.getElementById("optin");
     console.log("Opt-In:" + optin.checked);
 
     ////////////////////////////////////////////
     // EmailJS trigger
     ////////////////////////////////////////////
-    const serviceId = "service_vawz19v";
-    const templateId = "template_cjv4nfe";
-    const publicKey = "shonANTuR2xK5mQ0Q";
 
-    emailjs.send(serviceId, templateId, parameters)
+    // Bestätigung an Kunden
+    const serviceId1 = "service_vawz19v";
+    const templateId1 = "template_cjv4nfe";
+    const publicKey1 = "shonANTuR2xK5mQ0Q";
+
+    emailjs.send(serviceId1, templateId1, parameters)
+        .then(function (response) {
+            console.log('SUCCESS!', response.status, response.text);
+            // document.getElementById("vorname").value = "";
+            // document.getElementById("nachname").value = "";
+            // document.getElementById("email").value = "";
+            // console.log(res);
+            // alert("message sent successfully");
+        },
+        function (error) {
+            console.log("Failed", error);
+        }
+        );
+    
+    // Anmeldung an Büro
+    const serviceId2 = "service_vawz19v";
+    const templateId2 = "template_5ea91pp";
+    const publicKey2 = "shonANTuR2xK5mQ0Q";
+
+    emailjs.send(serviceId2, templateId2, parameters)
         .then(function (response) {
             console.log('SUCCESS!', response.status, response.text);
             // document.getElementById("vorname").value = "";
@@ -161,7 +185,7 @@ function sendCleverReachData() {
     xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     var email = document.getElementById("email").value;
     var data = "email=" + email + "&250470=" + parameters.vorname + "&250471=" + parameters.nachname + "&264138=" + parameters.anrede + "&250768=" + geschlecht + "&264139=" + parameters.titel + "&258000=" + parameters.plz
-        + "&258001=" + parameters.ort + "&258002=" + parameters.land + "&250767[day]=" + tag + "&250767[month]=" + monat + "&250767[year]=" + jahr + "&258005=" + sportartenSelected + "&258004=" + "Online-Anmeldung";
+        + "&258001=" + parameters.ort + "&258002=" + parameters.land + "&250767[day]=" + parameters.tag + "&250767[month]=" + parameters.monat + "&250767[year]=" + parameters.jahr + "&258005=" + sportartenSelected + "&258004=" + "Online-Anmeldung";
     xhttp.send(data);
     console.log(data);
   }
