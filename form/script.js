@@ -140,6 +140,13 @@ function sendMail () {
         sendCleverReachData();
     };
 
+    ////////////////////////////////////
+    // Parameter an Success URL anhängen
+    ////////////////////////////////////
+    var sucessUrl = "success.html" + "?email=" + parameters.email + "&vorname=" + parameters.vorname + "&nachname=" + parameters.nachname + "&anrede=" + parameters.anrede + "&geschlecht=" + geschlecht 
+    + "&titel=" + parameters.titel + "&plz=" + parameters.plz + "&ort=" + parameters.ort + "&land=" + parameters.land + "&tag=" + parameters.tag + "&monat=" + parameters.monat + "&jahr=" + parameters.jahr
+    + "&sportarten=" + sportartenSelected + "&optin=" + optin.checked;
+
     ///////////////////////////
     // Leeren der Input-Felder 
     ///////////////////////////
@@ -163,11 +170,12 @@ function sendMail () {
     sportartenSelected = "";
     document.getElementById("consent").checked = false;
 
-    ////////////////////////////////////////
-    // Öffnen der Success Page nach Absenden
-    ////////////////////////////////////////
+    ///////////////////////////////////////////////////////////////////////
+    // Öffnen der Success Page nach Absenden (inkl URl Parameter für Email)
+    ///////////////////////////////////////////////////////////////////////
     var newWindow = window.open("", "_blank");
-    newWindow.location.href = "success.html";
+
+    newWindow.location.href = sucessUrl;
 };
 
 /////////////////////////////////////////////
@@ -189,4 +197,23 @@ function sendCleverReachData() {
     xhttp.send(data);
     console.log(data);
   }
+
+/////////////////////////////////////////////
+// Success Page Script
+/////////////////////////////////////////////
+
+function getEmail () {
+    const userEmail = localStorage.getItem("email");
+    console.log(userEmail);
+}
+
+function getParameters () {
+    const queryString = window.location.search;
+    const urlParams = new URLSearchParams(queryString);
+    const email = urlParams.get('email');
+    const vorname = urlParams.get('vorname');
+    const titel = urlParams.get('titel');
+    const sportarten = urlParams.get('sportarten');
+    console.log(email + vorname + titel + sportarten);
+}
   

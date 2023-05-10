@@ -296,6 +296,22 @@ input[type="checkbox"]{
     cursor:not-allowed;
 }
 
+.ctaButton {
+    height: 30px;
+    width: 200px;
+    background-color: #4a8bc2;
+    border: 1px;
+    border-radius: 5px;
+    color: white;
+    cursor: pointer;
+}
+.ctaButton:hover {
+    background-color: #5999d1;
+}
+.ctaButton:active {
+    background-color: #65a4dc;
+}
+
 .switch {
     position: relative;
     display: inline-block;
@@ -350,4 +366,9 @@ input[type="checkbox"]{
   
   .slider.round:before {
     border-radius: 50%;
+  }
+
+  #infomail-success-text {
+    /* background-color: #57b46d7d; */
+    color: #57b46c;
   }
