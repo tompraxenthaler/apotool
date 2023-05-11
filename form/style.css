@@ -183,7 +183,7 @@ input[name="plz"] {
 #geburtstag-container {
     width: 100%;
     display: grid;
-    grid-template-columns: 130px auto;
+    grid-template-columns: 130px auto 5px auto 5px auto;
     text-align: center;
 }
 
